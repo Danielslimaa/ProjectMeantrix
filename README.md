@@ -10,13 +10,13 @@ python3 main.py
 ```
 Os resultados serão impressos na tela de terminal.
 
-Para compilar o programa numa página de HTML: 
+Para compilar o programa num aplicativo: 
 ```
 python3 server.py
 ```
 Os resultados serão impressos numa página de HTML e será possível escolher outros temas.
 
-## Compilar a partir dum container Docker 
+## Compilar o aplicatvo a partir dum container Docker 
 
 **1)** ```docker pull danielslimaa/projectmeantrix```
 
