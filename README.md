@@ -4,19 +4,19 @@
 
 ## Compilar localmente o programa
 
-Para rodar especificamente para o caso designado do projeto: 
+Para especificamente compilar para o caso designado do projeto: 
 ```
 python3 main.py
 ```
 Os resultados serão impressos na tela de terminal.
 
-Para compilar o programa num aplicativo: 
+Para compilar um aplicativo da tarefa com interface HTML num Web Bowser: 
 ```
 python3 server.py
 ```
-Os resultados serão impressos numa página de HTML e será possível escolher outros temas.
+Os resultados serão impressos num template interativo dentro do qual é possível escolher outros temas.
 
-## Compilar o aplicatvo a partir dum container Docker 
+## Compilar o aplicatvo a partir do container Docker 
 
 **1)** ```docker pull danielslimaa/projectmeantrix```
 
