@@ -24,4 +24,4 @@ Os resultados serão impressos numa página de HTML e será possível escolher o
 
 # Outras observações
 
-O arquivo ```main2.ipynb``` é uma prancheta geral de rascunhos e gráficos. 
+O arquivo ```main2.ipynb``` é uma prancheta geral para rascunhos e gráficos. 
