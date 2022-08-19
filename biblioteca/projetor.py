@@ -5,9 +5,11 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.decomposition import NMF
 
 #Texto e palavras chaves:
-target = "solutions on waste and water, Improve water quality and water efficiency use, water contamination, water for human consumption, water resources".split(" ")
+#target = "solutions on waste and water, Improve water quality and water efficiency use, water contamination, water for human consumption, water resources".split(" ")
 
-def projecao(target):
+def proj(target):
+
+    target_list = target.split(",")
 
     #Lendo a base o arquivo CSV:
     df = pd.read_csv('../canada_amostra.csv')
@@ -51,12 +53,12 @@ def projecao(target):
     lista_lat = []
     lista_lng = []
 
-
+    resposta_inteira = "=" * 100
 
     for tema, distances, neighbors in zip(temas, D, N):
         print("Tema de busca = " + " '" + str(tema) + "'", "\n")
+        resposta_inteira = resposta_inteira + "<p>" + "<b>" + "Tema de busca = " + "</b>" + " '" + "<b>" + str(tema) + "</b>" + "'" + "</p>"
         for dist, neighbor_idx in zip(distances, neighbors):
-
             nome_da_empresa = df.name.loc[neighbor_idx].capitalize()
             cidade_da_empresa = df.city.loc[neighbor_idx].capitalize()
             numero_de_empregados = df.employees.loc[neighbor_idx]
@@ -64,27 +66,36 @@ def projecao(target):
             lat = df.lat.loc[neighbor_idx]
             lng = df.lng.loc[neighbor_idx]
 
-
-            lista_temas.insert(len(lista_temas),tema)
-            nomes.insert(len(nomes),nome_da_empresa)
-            cidades.insert(len(cidades),cidade_da_empresa)
-            empregados.insert(len(empregados),numero_de_empregados)
-            aportes.insert(len(aportes),aporte_da_empresa)
+            lista_temas.insert(len(lista_temas), tema)
+            nomes.insert(len(nomes), nome_da_empresa)
+            cidades.insert(len(cidades), cidade_da_empresa)
+            empregados.insert(len(empregados), numero_de_empregados)
+            aportes.insert(len(aportes), aporte_da_empresa)
             lista_lat.insert(len(lista_lat), lat)
             lista_lng.insert(len(lista_lng), lng)
 
-            nova_linha = [{"tema":tema,"nome":nome_da_empresa,"cidade":cidade_da_empresa,"empregados":numero_de_empregados,"aporte":aporte_da_empresa}]
-            #df_respostas = df_respostas.append(nova_linha, ignore_index=True)
+            nova_linha = [
+                {"tema": tema, "nome": nome_da_empresa, "cidade": cidade_da_empresa, "empregados": numero_de_empregados,
+                 "aporte": aporte_da_empresa}]
+            # df_respostas = df_respostas.append(nova_linha, ignore_index=True)
 
-            print("Distância KNN = " + str(round(dist,3)) + ". Neighbor idx = ", neighbor_idx)
-            print("Nome da empresa: " + nome_da_empresa + ". Cidade: " + cidade_da_empresa)
+            parte_1 = "<p>" + "Distância KNN = " + str(round(dist, 3)) + ". Neighbor idx = " + str(neighbor_idx) + "</p>"
+            parte_2 = "<p>" + "Nome da empresa: " + nome_da_empresa + ". Cidade: " + cidade_da_empresa + "</p>"
 
+            print(parte_1)
+            print(parte_2)
 
-            print("-"*70)
-        print("="*100)
+            resposta_inteira = resposta_inteira + parte_1 + parte_2
+
+            print("-" * 70)
+        resposta_inteira = resposta_inteira + "<p>" + "=" * 100 + "</p>"
+        print("=" * 100)
         print()
 
     #Cria um dataframe de todas as respostas
     data = {"tema":lista_temas, "nome":nomes, "cidade":cidades, "empregados":empregados, "aporte":aportes, "X": lista_lng, "Y": lista_lat}
     df_respostas = pd.DataFrame(data)
+
+
+    return resposta_inteira
 

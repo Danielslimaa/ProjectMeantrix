@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./static/mywebscript.js"></script>
+    <div class="card">
+    <div class="card-body">
+        <div class="mb-3">
+            <label class="form-label">Igor, digite algum tema ou copie e cole o tema do enunciado do projeto:
+                <p> <i>solutions on waste and water,Improve water quality and water efficiency use,water contamination,water for human consumption,water resources </i> </p>
+                <p><b>Depois de apertar o botão, o processo pode demorar alguns segundos</b></p>
+            </label>
+            <input type="textarea" class="form-control" id="textToTranslate">
+        </div>
 
-</body>
+        <div style="padding: 25px 25px 25px 25px;">
+            <button onclick="translateToFrench()" class="btn btn-secondary">Recomendar</button>
+        </div>
+
+        <div id="translated_text" style="padding: 25px 25px 25px 25px;"></div>
+        </div>
+  </div>
 </html>

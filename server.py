@@ -1,19 +1,28 @@
-from projecao_hiperdimensional import projetor
+from biblioteca import projetor
 from flask import Flask, render_template, request
 import json
 
-app = Flask("Recomendador de empresa")
+from biblioteca.projetor import proj
 
+app = Flask("Recomendador de empresas")
+
+@app.route("/projecao")
+@app.route("/englishToFrench")
+def englishToFrench():
+    textToTranslate = request.args.get('textToTranslate')
+    answer = proj(textToTranslate)
+    return answer
+
+@app.route("/frenchToEnglish")
+def frenchToEnglish():
+    textToTranslate = request.args.get('textToTranslate')
+    answer = proj(textToTranslate)#translator.french_to_english(textToTranslate)
+    return answer
 
 @app.route("/")
 def renderIndexPage():
     # Write the code to render template
     return render_template("index.html")
-
-@app.route("/recomendador")
-def projecao():
-    return answer
-
 
 
 if __name__ == "__main__":

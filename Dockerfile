@@ -1,4 +1,4 @@
-FROM python:3.6-alpine3.7
+FROM python:3.9.0-alpine3.12
 
 RUN apk add --no-cache --update \
     python3 python3-dev gcc \
