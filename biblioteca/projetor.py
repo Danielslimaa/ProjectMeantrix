@@ -4,8 +4,8 @@ import sklearn
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.decomposition import NMF
 
-#Texto e palavras chaves:
-#target = "solutions on waste and water, Improve water quality and water efficiency use, water contamination, water for human consumption, water resources".split(" ")
+
+
 
 def proj(target):
 
@@ -33,7 +33,8 @@ def proj(target):
 
 
     ### RESPOSTA DA PERGUNTA
-    target = "solutions on waste and water,Improve water quality and water efficiency use,water contamination,water for human consumption,water resources"
+    # Texto e palavras chaves:
+    #target = "solutions on waste and water,Improve water quality and water efficiency use,water contamination,water for human consumption,water resources"
 
     target_list = target.split(",")
 
