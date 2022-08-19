@@ -1,6 +1,6 @@
 # ProjectMeantrix
 
-## O relatório feito em linguagem Markdown no RStudio: Relatorio.pdf com o arquivo Relatorio.pdf
+## O relatório feito em linguagem Markdown no RStudio: Relatorio.Rmd com o arquivo Relatorio.pdf
 
 ## Compilar localmente o programa
 
@@ -16,7 +16,9 @@ python3 server.py
 ```
 Os resultados serão impressos numa página de HTML e será possível escolher outros temas.
 
-## Compilar da imagem Docker 
+## Compilar a partir dum container Docker 
 
+**1)** ```docker pull danielslimaa/projectmeantrix```
 
+**2)** ```docker run danielslimaa/projectmeantrix```
 
